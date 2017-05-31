@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+         <property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
+         <property name="url" value="jdbc:mysql://localhost:3306/ourq20?"/> 
+         <property name="username" value="root"/> 
+         <property name="password" value="985892"/> 
+         <property name="initialSize" value="5"/>
+         <property name="maxActive" value="10"/>
+   </bean>
+   <bean id="specProDao" class="com.ourq20.jdbcDao.jdbcSpecProDao">
+   <property name="dataSource" ref="dataSource"></property>
+   </bean>
+   <bean id="basePersonDao" class="com.ourq20.jdbcDao.jdbcBasePersonDao">
+   <property name="dataSource" ref="dataSource"></property>
+   </bean>
+   <bean id="attrLevelDao" class="com.ourq20.jdbcDao.jdbcAttrLevelDao">
+   <property name="dataSource" ref="dataSource"></property>
+   </bean>
+   <bean id="attrValueDao" class="com.ourq20.jdbcDao.jdbcAttrValueDao">
+   <property name="dataSource" ref="dataSource"></property>
+   </bean>
+ </beans>
+      
